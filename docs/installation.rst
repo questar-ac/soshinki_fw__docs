@@ -7,23 +7,23 @@ Installation
 | USB-シリアル・アダプタの設定については :ref:`Setup USB-serial adapters <chapter-usbserial>` を参照してください。
 | About setup of USB-serial adapters, see :ref:`Setup USB-serial adapters <chapter-usbserial>`
 
-| omoikane_fwをWindows上で実行したい場合は :ref:`Running on WSL <chapter-windows>` を参照してください。
-| If you want to run omoikane_fw on Windows, see :ref:`Running on WSL <chapter-windows>`
+| soshinki_fwをWindows上で実行したい場合は :ref:`Running on WSL <chapter-windows>` を参照してください。
+| If you want to run soshinki_fw on Windows, see :ref:`Running on WSL <chapter-windows>`
 
 .. _section-get-source:
 
 Source code
 ===========
 
-| ソースコードはこちらの `GitHub repository <https://github.com/questar-ac/omoikane_fw>`_ で閲覧できます。
-| The source code can be viewed from this `GitHub repository <https://github.com/questar-ac/omoikane_fw>`_.
+| ソースコードはこちらの `GitHub repository <https://github.com/questar-ac/soshinki_fw>`_ で閲覧できます。
+| The source code can be viewed from this `GitHub repository <https://github.com/questar-ac/soshinki_fw>`_.
 
 | リポジトリのクローン:
 | Cloning the repository:
 
 .. code-block:: bash
 
-    git clone https://github.com/questar-ac/omoikane_fw.git
+    git clone https://github.com/questar-ac/soshinki_fw.git
 
 | これはプラベートリポジトリなので、あなた自身のGitHubアカウントとコラボレータとしてのアクセス権限が必要です。また、``git`` コマンドによってプライベートリポジトリへアクセスするには、あなたのアカウント上でパーソナルアクセストークンを作成する必要もあります。パーソナルアクセストークンの作成方法についてはこちらの  `Github Docs <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic>`_ を参照してください。
 | This is a private repository, so you will need your own GitHub account with access permissions as a collaborator. You also need to create a personal access token on your account to access to a private repository by ``git`` command. See this `Github Docs <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic>`_ on creating a personal access token.
@@ -33,17 +33,17 @@ Source code
 
 .. code-block:: bash
 
-    git clone https://<your_personal_access_token>@github.com/questar-ac/omoikane_fw.git
+    git clone https://<your_personal_access_token>@github.com/questar-ac/soshinki_fw.git
 
 .. _section-dependencies:
 
 Dependencies
 ============
 
-| omoikane_fwはRustコンパイラを必要とします。
-| omoikane_fw requires a Rust compiler.
+| soshinki_fwはRustコンパイラを必要とします。
+| soshinki_fw requires a Rust compiler.
 
-Requirements for omoikane_fw
+Requirements for soshinki_fw
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * `Redis <https://github.com/redis/redis>`_ : Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine.
@@ -94,8 +94,8 @@ Tested for **Ubuntu 24.04**.
     $ sudo apt install -y redis-server
     $ sudo sh -c 'echo "supervised systemd" >> /etc/redis/redis.conf'
     $ cd /tmp
-    $ git clone https://<your_personal_access_token>@github.com/questar-ac/omoikane_fw.git
-    $ sudo sh -c 'cat /tmp/omoikane_fw/terminal_setup/soshinki_redis.conf >> /etc/redis/redis.conf'
+    $ git clone https://<your_personal_access_token>@github.com/questar-ac/soshinki_fw.git
+    $ sudo sh -c 'cat /tmp/soshinki_fw/terminal_setup/soshinki_redis.conf >> /etc/redis/redis.conf'
     $ sudo systemctl restart redis
 
     # direnv
@@ -141,8 +141,8 @@ Tested for **macOS Ventura**.
     # Redis
     % brew install redis
     % cd /tmp
-    % git clone https://<your_personal_access_token>@github.com/questar-ac/omoikane_fw.git
-    % cat /tmp/omoikane_fw/terminal_setup/soshinki_redis.conf >> "$(brew --prefix)"/etc/redis.conf
+    % git clone https://<your_personal_access_token>@github.com/questar-ac/soshinki_fw.git
+    % cat /tmp/soshinki_fw/terminal_setup/soshinki_redis.conf >> "$(brew --prefix)"/etc/redis.conf
     % sudo brew services start redis
 
     # direnv
@@ -164,12 +164,12 @@ Building for Linux or macOS
 
 .. code-block:: bash
 
-    # get the omoikane_fw source
+    # get the soshinki_fw source
     $ mkdir -p ~/lib
     $ cd ~/lib
-    $ git clone https://<your_personal_access_token>@github.com/questar-ac/omoikane_fw.git
-    # build omoikane_fw
-    $ cd omoikane_fw
+    $ git clone https://<your_personal_access_token>@github.com/questar-ac/soshinki_fw.git
+    # build soshinki_fw
+    $ cd soshinki_fw
     $ cargo build
 
 .. _section-run:
@@ -184,9 +184,9 @@ Running for Linux
 
 .. code-block:: bash
 
-    # move to the directory of omoikane_fw source
-    $ cd ~/lib/omoikane_fw
-    # copy AWS IoT client certificate and key to the omoikane_fw's specific place
+    # move to the directory of soshinki_fw source
+    $ cd ~/lib/soshinki_fw
+    # copy AWS IoT client certificate and key to the soshinki_fw's specific place
     $ mkdir -p ~/.aws/iot
     $ cp -r terminal_setup/.aws/iot ~/.aws
 
@@ -204,14 +204,14 @@ Running for Linux
 
     # Login again
 
-    # always allow direnv to load .envrc in the omoikane_fw directory
+    # always allow direnv to load .envrc in the soshinki_fw directory
     $ mkdir -p ~/.config/direnv
     $ echo -e '[whitelist]\nprefix = [ "'$PWD'" ]' > ~/.config/direnv/direnv.toml
     $ cd ..
-    $ cd omoikane_fw
-    direnv: loading ~/lib/omoikane_fw/
+    $ cd soshinki_fw
+    direnv: loading ~/lib/soshinki_fw/
     direnv: export +SERIAL_PORT_NAMES +SERIAL_PORT_SPEEDS
-    # run the omoikane_fw program
+    # run the soshinki_fw program
     $ cargo run
 
 .. _section-run-macos:
@@ -222,9 +222,9 @@ Running for macOS
 .. code-block:: bash
 
 
-    # move to the directory of omoikane_fw source
-    % cd ~/lib/omoikane_fw
-    # copy AWS IoT client certificate and key to the omoikane_fw's specific place
+    # move to the directory of soshinki_fw source
+    % cd ~/lib/soshinki_fw
+    # copy AWS IoT client certificate and key to the soshinki_fw's specific place
     % mkdir -p ~/.aws/iot
     % cp -r terminal_setup/.aws/iot ~/.aws
 
@@ -232,14 +232,14 @@ Running for macOS
     % ls /dev/tty.*
     /dev/tty.usbserial-FTE3YEM3
 
-    # always allow direnv to load .envrc in the omoikane_fw directory
+    # always allow direnv to load .envrc in the soshinki_fw directory
     % mkdir -p ~/.config/direnv
     % echo -e '[whitelist]\nprefix = [ "'$PWD'" ]' > ~/.config/direnv/direnv.toml
     % cd ..
-    % cd omoikane_fw
-    direnv: loading ~/lib/omoikane_fw/
+    % cd soshinki_fw
+    direnv: loading ~/lib/soshinki_fw/
     direnv: export +SERIAL_PORT_NAMES +SERIAL_PORT_SPEEDS
-    # run the omoikane_fw program
+    # run the soshinki_fw program
     % cargo run
 
 .. _subsection-build-unix-vscode:
@@ -255,13 +255,13 @@ Building for using Visual Studio Code
 
 .. code-block:: bash
 
-    # get the omoikane_fw source
+    # get the soshinki_fw source
     $ mkdir -p ~/lib
     $ cd ~/lib
-    $ git clone https://<your_personal_access_token>@github.com/questar-ac/omoikane_fw.git
-    $ cd omoikane_fw
+    $ git clone https://<your_personal_access_token>@github.com/questar-ac/soshinki_fw.git
+    $ cd soshinki_fw
 
-    # copy AWS IoT client certificate and key to the omoikane_fw's specific place
+    # copy AWS IoT client certificate and key to the soshinki_fw's specific place
     $ mkdir -p ~/.aws/iot
     $ cp -r terminal_setup/.aws/iot ~/.aws
 
@@ -298,9 +298,9 @@ Run Instructions for using Visual Studio Code
 
 .. code-block:: bash
 
-    # move to the directory of omoikane_fw source
-    $ cd ~/lib/omoikane_fw
-    # copy AWS IoT client certificate and key to the omoikane_fw's specific place
+    # move to the directory of soshinki_fw source
+    $ cd ~/lib/soshinki_fw
+    # copy AWS IoT client certificate and key to the soshinki_fw's specific place
     $ mkdir -p ~/.aws/iot
     $ cp -r terminal_setup/.aws/iot ~/.aws
 
@@ -332,8 +332,8 @@ Run Instructions for using Visual Studio Code
 
 .. role:: green
 
-- | ``[実行とデバック]`` パネルを開いて、 ``[実行とデバック]`` メニューから ``[Debug executable 'omoikane_fw' | Ubuntu]`` を選択します。
-  | Open ``[Run and Debug]`` panel, and select ``[Debug executable 'omoikane_fw' | Ubuntu]`` from the ``[RUN AND DEBUG]`` menus.
+- | ``[実行とデバック]`` パネルを開いて、 ``[実行とデバック]`` メニューから ``[Debug executable 'soshinki_fw' | Ubuntu]`` を選択します。
+  | Open ``[Run and Debug]`` panel, and select ``[Debug executable 'soshinki_fw' | Ubuntu]`` from the ``[RUN AND DEBUG]`` menus.
 
 
 .. image:: ./img/ubuntu_vscode_rundebug_menu_select.png
@@ -343,8 +343,8 @@ Run Instructions for using Visual Studio Code
 
 .. NOTE::
 
-    | macOS上でVisual Studio Codeを使っている場合は、 ``[実行とデバック]`` メニューから ``[Debug executable 'omoikane_fw' | macOS]`` を選択してください。
-    | Please select ``[Debug executable 'omoikane_fw' | macOS]`` from the ``[RUN AND DEBUG]`` menus if you are using Visual Studio Code on macOS.
+    | macOS上でVisual Studio Codeを使っている場合は、 ``[実行とデバック]`` メニューから ``[Debug executable 'soshinki_fw' | macOS]`` を選択してください。
+    | Please select ``[Debug executable 'soshinki_fw' | macOS]`` from the ``[RUN AND DEBUG]`` menus if you are using Visual Studio Code on macOS.
 
 
 - | ``[実行とデバッグ]`` バネル内の [:green:`▷`] ボタンを押します (または、``[実行]`` > ``[デバッグの開始]`` メニューを実行します)。

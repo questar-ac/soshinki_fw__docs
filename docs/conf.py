@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'omoikane_fw'
+project = 'soshinki_fw'
 copyright = '2024-2025, Questar Inc'
 author = 'Yasuo Tomita'
 release = '0.2.0'

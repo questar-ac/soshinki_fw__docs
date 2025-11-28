@@ -30,10 +30,10 @@ Platform Dependencies
 Dependencies
 ============
 
-| omoikane_fwはRustコンパイラを必要とします。
-| omoikane_fw requires a Rust compiler.
+| soshinki_fwはRustコンパイラを必要とします。
+| soshinki_fw requires a Rust compiler.
 
-Requirements for omoikane_fw
+Requirements for soshinki_fw
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * `Redis <https://github.com/redis/redis>`_ : Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine.
@@ -81,8 +81,8 @@ Tested for **Windows 11 Pro 24H2** and **Ubuntu 24.04 on WSL2**.
     $ sudo apt install -y redis-server
     $ sudo sh -c 'echo "supervised systemd" >> /etc/redis/redis.conf'
     $ cd /tmp
-    $ git clone https://<your_personal_access_token>@github.com/questar-ac/omoikane_fw.git
-    $ sudo sh -c 'cat /tmp/omoikane_fw/terminal_setup/soshinki_redis.conf >> /etc/redis/redis.conf'
+    $ git clone https://<your_personal_access_token>@github.com/questar-ac/soshinki_fw.git
+    $ sudo sh -c 'cat /tmp/soshinki_fw/terminal_setup/soshinki_redis.conf >> /etc/redis/redis.conf'
     $ sudo systemctl restart redis
 
     # direnv
@@ -107,12 +107,12 @@ Build Instructions
 
 .. code-block:: bash
 
-    # get the omoikane_fw source
+    # get the soshinki_fw source
     $ mkdir -p ~/lib
     $ cd ~/lib
-    $ git clone https://<your_personal_access_token>@github.com/questar-ac/omoikane_fw.git
-    # build omoikane_fw
-    $ cd omoikane_fw
+    $ git clone https://<your_personal_access_token>@github.com/questar-ac/soshinki_fw.git
+    # build soshinki_fw
+    $ cd soshinki_fw
     $ cargo build
 
 .. _section-wsllinux-run:
@@ -125,21 +125,21 @@ Run Instructions
 
 .. code-block:: bash
 
-    # move to the directory of omoikane_fw source
-    $ cd ~/lib/omoikane_fw
-    # copy AWS IoT client certificate and key to the omoikane_fw's specific place
+    # move to the directory of soshinki_fw source
+    $ cd ~/lib/soshinki_fw
+    # copy AWS IoT client certificate and key to the soshinki_fw's specific place
     $ mkdir -p ~/.aws/iot
     $ cp -r terminal_setup/.aws/iot ~/.aws
 
-    # always allow direnv to load .envrc in the omoikane_fw directory
+    # always allow direnv to load .envrc in the soshinki_fw directory
     $ mkdir -p ~/.config/direnv
     $ echo -e '[whitelist]\nprefix = [ "'$PWD'" ]' > ~/.config/direnv/direnv.toml
     $ cd ..
-    $ cd omoikane_fw
-    direnv: loading ~/lib/omoikane_fw/
+    $ cd soshinki_fw
+    direnv: loading ~/lib/soshinki_fw/
     direnv: export +SERIAL_PORT_NAMES +SERIAL_PORT_SPEEDS
 
-    # run the omoikane_fw program
+    # run the soshinki_fw program
     $ cargo run
 
 
@@ -174,12 +174,12 @@ Build Instructions for using Visual Studio Code
 
 .. code-block:: bash
 
-    # get the omoikane_fw source
+    # get the soshinki_fw source
     $ mkdir -p ~/lib
     $ cd ~/lib
-    $ git clone https://<your_personal_access_token>@github.com/questar-ac/omoikane_fw.git
-    $ cd omoikane_fw
-    # copy AWS IoT client certificate and key to the omoikane_fw's specific place
+    $ git clone https://<your_personal_access_token>@github.com/questar-ac/soshinki_fw.git
+    $ cd soshinki_fw
+    # copy AWS IoT client certificate and key to the soshinki_fw's specific place
     $ mkdir -p ~/.aws/iot
     $ cp -r terminal_setup/.aws/iot ~/.aws
 
@@ -266,8 +266,8 @@ Running for using Visual Studio Code
     $ ls /dev/ttyUSB*
     /dev/ttyUSB0
 
-    # move to the directory of omoikane_fw source
-    $ cd ~/lib/omoikane_fw
+    # move to the directory of soshinki_fw source
+    $ cd ~/lib/soshinki_fw
     # open Visual Studio Code
     $ code .
 
@@ -297,8 +297,8 @@ Running for using Visual Studio Code
 
 .. role:: green
 
-- | ``[実行とデバッグ]`` パネルを開いて、 ``[実行とデバッグ]`` メニューから ``[Debug executable 'omoikane_fw' | Ubuntu]`` を選択します。
-  | Open ``[Run and Debug]`` panel, and select ``[Debug executable 'omoikane_fw' | Ubuntu]`` from the ``[RUN AND DEBUG]`` menus.
+- | ``[実行とデバッグ]`` パネルを開いて、 ``[実行とデバッグ]`` メニューから ``[Debug executable 'soshinki_fw' | Ubuntu]`` を選択します。
+  | Open ``[Run and Debug]`` panel, and select ``[Debug executable 'soshinki_fw' | Ubuntu]`` from the ``[RUN AND DEBUG]`` menus.
 
 
 .. image:: ./img/wsl_vscode_rundebug_menu_select.png
