@@ -9,7 +9,7 @@
 project = 'soshinki_fw'
 copyright = '2024-2025, Questar Inc'
 author = 'Yasuo Tomita'
-release = '0.2.0'
+release = '0.3.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
