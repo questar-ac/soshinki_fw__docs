@@ -45,7 +45,7 @@ Parameters for measures
 
 .. _section-measureparameters-vibration:
 
-振動計 [Vibration meastures]
+振動計 [Vibration measures]
 =============================
 
 .. list-table::
@@ -65,6 +65,11 @@ Parameters for measures
         Number of Measurement Data per Minimum Aggregate Unit Time
     * - リオン [RION]
       - VM-55
+      - 1 秒 [seconds]
+      - 10 秒 [seconds]
+      - 10
+    * - リオン [RION]
+      - VM-57
       - 1 秒 [seconds]
       - 10 秒 [seconds]
       - 10
